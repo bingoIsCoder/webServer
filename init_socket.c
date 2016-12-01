@@ -22,10 +22,10 @@ int init_socket(int *listenFd, struct sockaddr_in *serverAddr)
     }
 
     serverAddr->sin_family = AF_INET;
-    serverAddr->sin_port = htos(PORT);
+    serverAddr->sin_port = htons(PORT);
     serverAddr->sin_addr.s_addr = htonl(INADDR_ANY);
 
-    if (-1 == bind(*linstenFd, (struct sockaddr *)&serverAddr, sizeof(struct sockaddr_in)))
+    if (-1 == bind(*listenFd, (struct sockaddr *)&serverAddr, sizeof(struct sockaddr_in)))
     {
         perror("bind() error: in init_socket.c");
         return -1;

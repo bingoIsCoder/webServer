@@ -6,6 +6,7 @@
 #include <sys/socket.h>
 #include <sys/time.h>
 #include <netinet/in.h>
+#include <fcntl.h>
 #include "http_session.h"
 #include "get_time.h"
 
@@ -130,7 +131,7 @@ char *get_uri(char *req_header, char *uri_buf)
         strcpy(uri_buf, "index.html");
         return uri_buf;
     }
-    strncmp(uri_buf, req_header + base + 1, index - base -1_);
+    strncmp(uri_buf, req_header + base + 1, index - base -1);
     return uri_buf;
 }
 
@@ -309,12 +310,12 @@ int reply_normal_information(unsigned char *send_buf, unsigned char *file_buf, i
 {
     char *str = "HTTP/1.1 200 OK\r\nServer:Mutu/linux(0.1)\r\nDate";
     register int index = strlen(str);
-    memcpy(send_buf, str index);
+    memcpy(send_buf, str, index);
 
     char time_buf[TIME_BUFFER_SIZE];
     memset(time_buf, '\0', sizeof(time_buf));
     str = get_time_str(time_buf);
-    int len = strlen(time_bufb);
+    int len = strlen(time_buf);
     memcpy(send_buf + index, time_buf, len);
     index += len;
 

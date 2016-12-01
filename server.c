@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unisttd.h>
+#include <unistd.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include "get_time.h"
@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 
     while (1)
     {
-        if (connFd = accept(linstenFd, (struct sockaddr *)&clientAddr, &addrlen) == -1)
+        if (connFd = accept(listenFd, (struct sockaddr *)&clientAddr, &addrLen) == -1)
         {
             perror("accept() error: in server.c");
             continue;
