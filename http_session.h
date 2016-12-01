@@ -15,7 +15,7 @@
 #define FILE_NOT_FOUND 404
 #define UNALLOW_MERHOD 405
 #define FILE_TOO_LARGE 413
-#define URT_TOO_LONG 414
+#define URI_TOO_LONG 414
 #define UNSUPPORT_MIME_TYPE 415
 #define UNSUPPORT_HTTP_VERSION 505
 #define FILE_MAX_SIZE 1048576
@@ -31,7 +31,7 @@ char * get_uri(char *req_header, char *uri_buf);
 
 int get_uri_status(char *uri);
 
-char * get_mine_type(char *uri);
+char * get_mime_type(char *uri);
 
 int get_file_disk(char *uri, unsigned char *entity_buf);
 
